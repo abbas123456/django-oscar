@@ -53,8 +53,8 @@ TIME_ZONE = 'Europe/London'
 LANGUAGE_CODE = 'en-us'
 
 LANGUAGES = (
-    ('de', 'German'),
-    ('fr', 'French'),
+    ('en-us', 'English'),
+    ('ar', 'Arabic'),
 )
 ROSETTA_STORAGE_CLASS = 'rosetta.storage.SessionRosettaStorage'
 ROSETTA_ENABLE_TRANSLATION_SUGGESTIONS = True
@@ -127,6 +127,7 @@ MIDDLEWARE_CLASSES = (
     'django.middleware.transaction.TransactionMiddleware',
     'django.contrib.flatpages.middleware.FlatpageFallbackMiddleware',
     'debug_toolbar.middleware.DebugToolbarMiddleware',
+    'django.middleware.locale.LocaleMiddleware',
     # Oscar middleware
     'oscar.apps.basket.middleware.BasketMiddleware',
     #'oscar.middleware.profiling.ProfileMiddleware',
