@@ -56,6 +56,7 @@ LANGUAGES = (
     ('en-us', 'English'),
     ('ar', 'Arabic'),
 )
+
 ROSETTA_STORAGE_CLASS = 'rosetta.storage.SessionRosettaStorage'
 ROSETTA_ENABLE_TRANSLATION_SUGGESTIONS = True
 
