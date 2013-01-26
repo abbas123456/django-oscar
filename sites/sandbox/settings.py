@@ -132,6 +132,7 @@ MIDDLEWARE_CLASSES = (
     # Oscar middleware
     'oscar.apps.basket.middleware.BasketMiddleware',
     #'oscar.middleware.profiling.ProfileMiddleware',
+    'oscar.middleware.templating.LanguageMiddleware',
 )
 
 INTERNAL_IPS = ('127.0.0.1',)
