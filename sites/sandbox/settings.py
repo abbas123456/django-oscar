@@ -50,10 +50,10 @@ TIME_ZONE = 'Europe/London'
 
 # Language code for this installation. All choices can be found here:
 # http://www.i18nguy.com/unicode/language-identifiers.html
-LANGUAGE_CODE = 'en-us'
+LANGUAGE_CODE = 'en'
 
 LANGUAGES = (
-    ('en-us', 'English'),
+    ('en', 'English'),
     ('ar', 'Arabic'),
 )
 
@@ -251,9 +251,10 @@ INSTALLED_APPS = [
     'compressor',
     'apps.user',  # For profile testing
     'apps.gateway',  # For allowing dashboard access
+    'modeltranslation',
 ]
 from oscar import get_core_apps
-INSTALLED_APPS = INSTALLED_APPS + get_core_apps()
+INSTALLED_APPS = INSTALLED_APPS + get_core_apps(('apps.catalogue',))
 
 AUTHENTICATION_BACKENDS = (
     'oscar.apps.customer.auth_backends.Emailbackend',

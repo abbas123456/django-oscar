@@ -1,0 +1,41 @@
+{% extends "layout.html" %}
+{% load promotion_tags %}
+
+{% block content_wrapper %}
+<div class="container-fluid page">
+    <div class="page_inner">
+        {% block breadcrumbs %}{% endblock %}
+        {% include "partials/alert_messages.html" %}
+        <div class="row-fluid">
+                <div class="span9">
+                    {% block header %}
+                    <div class="page-header action">
+                        <h1>{% block headertext %}{% endblock %}</h1>
+                    </div>
+                    {% endblock %}
+
+                <div id="promotions">
+                    {% for promotion in promotions_page %}
+                    {% render_promotion promotion %}
+                    {% endfor %}
+                </div>
+
+                {% block flatpage %}
+                {% endblock %}
+
+                {% block content %}
+                {% endblock %}
+            </div><!-- /span9 -->
+            <aside class="sidebar span3">
+                <div id="promotions_left">
+                    {% for promotion in promotions_left %}
+                    {% render_promotion promotion %}
+                    {% endfor %}
+                </div>
+                {% block column_left %}
+                {% endblock %}
+            </aside><!-- /span3 -->
+        </div><!-- /row-fluid -->
+    </div><!-- /page_inner -->
+</div><!-- /container-fluid -->
+{% endblock %}
