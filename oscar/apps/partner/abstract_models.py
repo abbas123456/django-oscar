@@ -95,9 +95,7 @@ class AbstractStockRecord(models.Model):
     We deliberately don't store tax information to allow each project
     to subclass this model and put its own fields for convey tax.
     """
-    product = models.OneToOneField(
-        'catalogue.Product', related_name="stockrecord",
-        verbose_name=_("Product"))
+    product = models.ForeignKey('catalogue.Product', verbose_name=_("Product"))
     partner = models.ForeignKey('partner.Partner', verbose_name=_("Partner"))
 
     # The fulfilment partner will often have their own SKU for a product, which
@@ -303,10 +301,10 @@ class AbstractStockRecord(models.Model):
 
     def __unicode__(self):
         if self.partner_sku:
-            return "%s (%s): %s" % (self.partner.display_name,
-                                    self.partner_sku, self.product.title)
+            return "%s (%s)" % (self.partner.display_name,
+                                    self.partner_sku)
         else:
-            return "%s: %s" % (self.partner.display_name, self.product.title)
+            return "%s" % (self.partner.display_name)
 
 
 class AbstractStockAlert(models.Model):
