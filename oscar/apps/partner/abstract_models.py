@@ -152,7 +152,7 @@ class AbstractStockRecord(models.Model):
 
     class Meta:
         abstract = True
-        unique_together = ('partner', 'partner_sku')
+        unique_together = (('partner', 'partner_sku'),('partner', 'product'))
         verbose_name = _("Stock Record")
         verbose_name_plural = _("Stock Records")
 
